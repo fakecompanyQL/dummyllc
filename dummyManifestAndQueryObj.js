@@ -10,30 +10,53 @@
 // }
 
 //USER OF NPM PACKAGE WOULD DEFINE THIS MANIFEST OBJECT
-export const manifest = {
+//STEP 2
+const manifest = {
     endpoints: {
       //INSERT API PATH HERE 
       '/book/:id':{
-        //METHOD:
+        //REST METHOD:
         get:{
-          operation: 'book'
+          //OPERATION COINCIDES WITH 
+          //YOUR METHOD IN THE QUERY/MUTATION OBJECT IN SCHEMA
+          operation: 'book',
         },
         post: {
-          operation: 'updateBook'
+          operation: 'updateBook',
         }
       },
       '/books': {
         post: {
-          operation: 'books'
+          operation: 'books',
+          defaultParams: {
+            pageSize: 20,
+            page: 1
+          }
         }
       },
       '/author': {
         get: {
-          operation: 'author'
+          operation: 'author',
         }
       }
     }
   }
+
+  export default manifest;
+//   {
+//     updateBook: {
+//       id: ID!,
+//       name: String
+//     },
+//     book: {
+//       id: ID!
+//     }
+//   }
+
+// {  
+//   updateBook: [id, name],
+//   author: ['id']
+// }
 
   // FOR REFERENCE / TESTING ONLY
   //RETURNED OBJECT FROM CREATE QUERY FUNCTION
