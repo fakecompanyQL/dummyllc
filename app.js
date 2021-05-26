@@ -34,7 +34,7 @@ async function executeFn ({ query, variables, schema, context }){
 
 
 // STEP 1
-const createdQuery = queryMap(manifest, schema);
+const createdQuery = queryMap(manifest, schema, ['Date']);
 
 // STEP 2
 const apiRouter = routerCreation(manifest, createdQuery, {
